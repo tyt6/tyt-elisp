@@ -1,0 +1,80 @@
+-*-encoding:utf-8; mode:Fundamental -*-
+
+* (require 'w3m) (require 'yasnippet) (require 'etags) (require 'eldoc)
+
+* もしかすると sdic, reviveなどに依存しているかもしれない
+* 
+
+* ファイル
+utility.el: いろんな関数が入っている。
+basic.el: いろんな関数が入っている。
+lbuffer.el: バッファ/ファイル関係の関数が入っている。
+window-controler.el:  windmoveと同等の関数を自分で作っていた。
+my-emacs.el: define-keys
+my-interactive.el: interactive関数がメイン
+他にもあるが、汚いので割愛した。(こちらにあるのでも十分に汚いが。)
+
+** my-interactive.el
+
+- my-file-cache-minibuffer-complete
+file-cache-alistを自分用のalistを使って呼びだす。
+
+- map-region
+region内のsexpをmapする。
+
+-ln
+
+-ln-asd-file
+asdファイルをln する
+
+-find-file-asd
+asdファイルを開く.
+
+-my-find-file-log
+自分専用のfind-fileログ.
+
+-my-pwd
+
+-my-dired-find-file
+my-find-file-logを行う.dired-find-file
+
+-my-find-tag
+my-find-file-logを行うfind-tag
+
+-get-file-ignore
+file-name-historyで使う ignore関数
+
+-file-name-history-debug
+get-file-ignoreデバッグ用関数
+
+-ffap-local
+file-name-historyを(get-file-ignore)でfilterする ffap.
+my-find-file-logを行う
+
+-get-my-buffer-ignore
+my-iswitchb-bufferで使うignore関数
+
+-my-iswitchb-buffer-debug
+my-iswitchb-bufferのデバッグ用関数
+
+-my-iswitchb-buffer
+(get-my-buffer-ignore)関数をignoreとして使う iswitchb-buffer
+
+-my-window-switch-all
+今表示されている全てのwindowから、get-my-buffer-ignore関数でセットしたファイルを除いて他のバッファへswitchする。
+
+-my-dabbrev-expand
+yas/expand と dabbrev-expandを混ぜた
+
+-get-my-file-name-history
+file-name-historyを自分のログファイルから構築する。
+
+-my-eldoc-indent-function
+eldocの&restを元にlisp-indent-functionを設定する。
+
+-my-minibuffer-switch
+ミニバッファが普通のバッファの位置に表示されたら、他のバッファと交換する。
+(windows.elで起こる)
+
+-kill-message-buffers
+メッセージ系バッファを消す
