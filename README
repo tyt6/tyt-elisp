@@ -1,20 +1,29 @@
 -*-encoding:utf-8; mode:Fundamental -*-
 
-* (require 'w3m) (require 'yasnippet) (require 'etags) (require 'eldoc)
+* 概要
+tyt6が独自作成したelisp libraryの3割位を掲載。
+PC初心者の頃から使っているのでめちゃくちゃ汚い。
+リファクタリングなどしない。
 
-* もしかすると sdic, reviveなどに依存しているかもしれない
-* 
+* 依存関係
+一部で以下のライブラリを使用
+(require 'w3m) (require 'yasnippet) (require 'etags) (require 'eldoc)
 
 * ファイル
 utility.el: いろんな関数が入っている。
 basic.el: いろんな関数が入っている。
-lbuffer.el: バッファ/ファイル関係の関数が入っている。
+lbuffer.el: バッファ/ファイル関係の関数が入っている。lはlocalの意味だったか。
 window-controler.el:  windmoveと同等の関数を自分で作っていた。
 my-emacs.el: define-keys
 my-interactive.el: interactive関数がメイン
 他にもあるが、汚いので割愛した。(こちらにあるのでも十分に汚いが。)
 
 ** my-interactive.el
+
+- scroll-right-backward , scroll-left-forward, scroll-up-next-line, scroll-down-previous-line
+(/ (window-width) 6)だけ右|左|上|下にscrollする。
+
+- tags-search-at-point
 
 - my-file-cache-minibuffer-complete
 file-cache-alistを自分用のalistを使って呼びだす。
@@ -61,7 +70,7 @@ my-iswitchb-bufferのデバッグ用関数
 (get-my-buffer-ignore)関数をignoreとして使う iswitchb-buffer
 
 -my-window-switch-all
-今表示されている全てのwindowから、get-my-buffer-ignore関数でセットしたファイルを除いて他のバッファへswitchする。
+今表示されている全てのwindowに、get-my-buffer-ignore関数でセットしたファイルを除いて他のバッファへswitchする。
 
 -my-dabbrev-expand
 yas/expand と dabbrev-expandを混ぜた
